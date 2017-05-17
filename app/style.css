@@ -83,3 +83,80 @@ div.total{
 div.total span{
   float:right;
 }
+
+.active{
+  background-color:#8ec16d;
+}
+
+table {
+  padding-top: 20px;
+  border-collapse: collapse;
+}
+
+tr {
+  background-color: #61a1bc;
+}
+
+td {
+  background-color: #e35885;
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px 20px 20px 20px;
+  text-align: left;
+  font-weight: bold;
+  color: #000;
+  border-top: 20px solid #61a1bc;
+}
+
+td.add-service {
+  background-color: #61a1bc;
+  text-align: center;
+  border-bottom: 20px solid #61a1bc;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 5px;
+  color: #fff;
+}
+
+tr.total > td {
+  border-top:1px solid rgba(255,255,255,0.5); /* missing because border-collapse */
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+  background-color: #61a1bc;
+}
+
+td.price {
+  text-align: right;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 5px;
+  color: #fff;  
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #000;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #000;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #000;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #000;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #000;
+}
+
+
