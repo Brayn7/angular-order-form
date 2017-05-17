@@ -4,6 +4,8 @@ function OrderFormController($scope){
   // through the services array and generate a li
   // element for every one of its items.
 
+  $scope.input = false;
+
   $scope.services = [
     {
       name: 'Web Development',
@@ -26,6 +28,26 @@ function OrderFormController($scope){
 
   $scope.toggleActive = function(s){
     s.active = !s.active;
+  };
+
+  // Constructor to create new services
+  function Service(name, price) {
+      this.name = name;
+      this.price = price;
+      this.active = true;
+  };
+
+  $scope.remove = (evt) => {
+      $scope.services.splice(evt.$index, 1);
+  };
+
+  // Adds a new Service
+  $scope.addService = () => {
+      var newService = new Service($scope.name, $scope.price);
+      $scope.services.push(newService);
+      $scope.input = false;
+      $scope.name = null;
+      $scope.price = null;
   };
 
   // Helper method for calculating the total price

@@ -14,14 +14,40 @@
 
   <h1>Services</h1>
 
-  <ul>
+    <!-- Table Format -->
+    <!-- <table class="w3-table">
+        <tr>
+            <th>Service</th>
+            <th>Price</th>
+        </tr>
+        <tr ng-repeat="service in services">
+            <td>{{service.name}}</td>
+            <td>{{service.price | currency}}</td>
+            <td ng-click="remove(this)">-</td>
+        </tr>
+    </table> -->
+
+  <ul ng-repeat="service in services">
     <!-- Loop through the services array, assign a click handler, and set or
       remove the "active" css class if needed -->
-    <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+    <li ng-click="toggleActive(service)" ng-class="{active:service.active}">
       <!-- Notice the use of the currency filter, it will format the price -->
-      {{service.name}} <span>{{service.price | currency}}</span>
+      {{service.name}} <span>{{service.price | currency}} </span>
+      <div ng-style="{float: 'right'}" ng-click="remove(this)">
+          <h1>-</h1>
+      </div>
     </li>
   </ul>
+
+  <div class="id" ng-hide="input" ng-click="input = true;">
+      <h1>+</h1>
+  </div>
+
+  <div ng-show="input">
+      <input type="text" placeholder="name" ng-model="name">
+      <input type="number" placeholder="price" ng-model="price">
+      <input type="submit" id="submit" value="Submit" ng-click="addService()" ng-disabled="!name || !price"/>
+  </div>
 
   <div class="total">
     <!-- Calculate the total price of all chosen services. Format it as currency. -->
