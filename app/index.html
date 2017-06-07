@@ -11,13 +11,15 @@
       <h1>Services</h1>
       <div id="services">
         
-          <div class="service" toggle="service" ng-repeat="service in services">
-       <!--      <h2>{{service.name}}</h2>
-            <p>{{service.price | currency : "$" : 2}}</p> -->
+          <div class="service" ng-click="total(service);" toggle="service" ng-repeat="service in services">
+       <!-- 
+            <h2>{{service.name}}</h2>
+            <p>{{service.price | currency : "$" : 2}}</p> 
+        -->
           </div>
       </div>
       <div id="total">
-        <h2>Total:</h2><p>00.00</p>
+        <h2>Total:</h2><p>{{sum | currency : "$" : 2}}</p>
       </div>
     </div>
   </div>

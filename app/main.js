@@ -9,7 +9,11 @@ App.controller('serviceController', ['$scope', function ($scope) {
       {name: "Training", price: 220.00, checked: false,},
    ];
 
-   $scope.total = function(){}
+   $scope.sum = 0;
+
+   $scope.total = function(e){
+      return  (e.checked === true) ? $scope.sum += e.price : $scope.sum -= e.price;
+   };
 
 }]);
 
@@ -18,7 +22,7 @@ App.directive('toggle', function() {
       scope: {
         toggle: '='
       },
-      template: '<div ng-click="toggle.checked=!toggle.checked, " ng-class="{\'toggle\':true, \'toggle-inner-yes\':toggle.checked, \'toggle-inner-no\':!toggle.checked}"><h2>{{toggle.name}}</h2><p>{{toggle.price | currency : "$" : 2}}</p></div>',
+      template: '<div ng-click="toggle.checked=!toggle.checked" ng-class="{\'toggle\':true, \'toggle-inner-yes\':toggle.checked, \'toggle-inner-no\':!toggle.checked}"><h2>{{toggle.name}}</h2><p>{{toggle.price | currency : "$" : 2}}</p></div>',
       replace: true
     }
   });
