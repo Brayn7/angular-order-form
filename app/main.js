@@ -1,50 +1,24 @@
-function OrderFormController($scope){
+const App = angular.module('app', []);
 
-  // Define the model properties. The view will loop
-  // through the services array and generate a li
-  // element for every one of its items.
+App.controller('serviceController', ['$scope', function ($scope) {
+   
+   $scope.services = [
+      {name: "Web Development", price: 300.00, checked: false,},
+      {name: "Design", price: 400.00, checked: false,},
+      {name: "Integration", price: 250.00, checked: false,},
+      {name: "Training", price: 220.00, checked: false,},
+   ];
 
-  $scope.services = [
-    {
-      name: 'Web Development',
-      price: 300,
-      active:false
-    },{
-      name: 'Design',
-      price: 400,
-      active:false
-    },{
-      name: 'Integration',
-      price: 250,
-      active:false
-    },{
-      name: 'Training',
-      price: 220,
-      active:false
+   $scope.total = function(){}
+
+}]);
+
+App.directive('toggle', function() {
+    return {
+      scope: {
+        toggle: '='
+      },
+      template: '<div ng-click="toggle.checked=!toggle.checked, " ng-class="{\'toggle\':true, \'toggle-inner-yes\':toggle.checked, \'toggle-inner-no\':!toggle.checked}"><h2>{{toggle.name}}</h2><p>{{toggle.price | currency : "$" : 2}}</p></div>',
+      replace: true
     }
-  ];
-
-  $scope.toggleActive = function(s){
-    s.active = !s.active;
-  };
-
-  // Helper method for calculating the total price
-
-  $scope.total = function(){
-
-    var total = 0;
-
-    // Use the angular forEach helper method to
-    // loop through the services array:
-
-    angular.forEach($scope.services, function(s){
-      if (s.active){
-        total+= s.price;
-      }
-    });
-
-    return total;
-  };
-}
-
-angular.module('app', []).controller('OrderFormController', OrderFormController);
+  });
