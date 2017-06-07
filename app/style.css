@@ -1,3 +1,13 @@
+body {
+   color: #222;
+}
+
+#main {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
 .service > *, #total > * {
     display: inline-block;
 }
@@ -9,12 +19,12 @@
 .service {
     background: #eee;
     margin: 10px 0;
+    border: 1px solid #222;
 }
 
 .toggle {
   margin: 0.5em;
   padding: 0.5em;
-  color: white;
 }
 
 .toggle-inner-yes {
@@ -22,5 +32,5 @@
 }
 
 .toggle-inner-no {
-  background-color: 585858;
+  background-color: white;
 }

@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>ng order form</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body ng-app="app">
-  <div id="main">
-    <div ng-controller="serviceController">
-      <h1>Services</h1>
-      <div id="services">
-        
+  <head>
+    <meta charset="UTF-8">
+    <title>ng order form</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app="app">
+    <div id="main">
+      <!-- start of serviceController  -->
+      <div ng-controller="serviceController">
+        <h1>Services</h1>
+        <div id="services">
           <div class="service" ng-click="total(service);" toggle="service" ng-repeat="service in services">
-       <!-- 
+            <!--
             <h2>{{service.name}}</h2>
-            <p>{{service.price | currency : "$" : 2}}</p> 
-        -->
+            <p>{{service.price | currency : "$" : 2}}</p>
+            -->
           </div>
-      </div>
-      <div id="total">
-        <h2>Total:</h2><p>{{sum | currency : "$" : 2}}</p>
+        </div>
+        <div id="total">
+          <h2>Total:</h2><p>{{sum | currency : "$" : 2}}</p>
+        </div>
+        <!-- start of addService -->
+        <div >
+          <h2>Add New Service</h2>
+          <div id="form">
+            <label for="name">Name of Service</label>
+            <input id="name" type="text" ng-model="newService.name">
+            <label for="amount">amount</label>
+            <input id="amount" type="number" min="1" step="any" ng-model="newService.price">
+            <button ng-click="addNewService()">add</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="main.js"></script>
-
-</body>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

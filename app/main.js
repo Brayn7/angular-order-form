@@ -1,14 +1,23 @@
 const App = angular.module('app', []);
 
 App.controller('serviceController', ['$scope', function ($scope) {
-   
-   $scope.services = [
+
+     $scope.services = [
       {name: "Web Development", price: 300.00, checked: false,},
       {name: "Design", price: 400.00, checked: false,},
       {name: "Integration", price: 250.00, checked: false,},
       {name: "Training", price: 220.00, checked: false,},
    ];
 
+      $scope.addNewService = function(){
+         console.log("click");
+         $scope.services.push({
+               name: $scope.newService.name, 
+               price: $scope.newService.price, 
+               checked: false,
+            }); 
+   };
+   
    $scope.sum = 0;
 
    $scope.total = function(e){
